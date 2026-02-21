@@ -1,6 +1,7 @@
 vendor/
 .env
 .env.*
+!.env.example
 *.log
 *.cache
 .DS_Store
