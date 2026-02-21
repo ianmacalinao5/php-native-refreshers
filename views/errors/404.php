@@ -4,11 +4,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Users</title>
+	<title>404 Not Found</title>
 </head>
 
-<body class="max-w-7xl mx-auto px-5 py-3">
-	<h1 class="text-3xl font-medium">Users</h1>
+<body class="min-h-screen flex items-center justify-center">
+	<h1 class="text-3xl font-medium text-gray-600">404 | NOT FOUND</h1>
 </body>
 
 </html>

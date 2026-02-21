@@ -7,7 +7,7 @@
 	<title>Home</title>
 </head>
 
-<body>
+<body class="max-w-7xl mx-auto px-5 py-3">
 	<h1>Home</h1>
 </body>
 

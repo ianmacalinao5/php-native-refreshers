@@ -13,10 +13,8 @@ require "../routes/web.php";
 	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="mx-auto px-5 py-2">
-
+<body>
 	<?php require $view; ?>
-
 </body>
 
 </html>
