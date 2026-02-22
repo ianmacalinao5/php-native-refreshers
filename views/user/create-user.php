@@ -7,7 +7,7 @@
 	<title>Users</title>
 </head>
 
-<body class="max-w-7xl mx-auto px-5 py-3">
+<body class="max-w-6xl mx-auto px-5 py-3">
 	<h1 class="text-3xl font-medium">Users</h1>
 </body>
 
