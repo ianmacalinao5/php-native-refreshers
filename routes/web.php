@@ -8,5 +8,6 @@ $view = null;
 
 if ($uri === '/') $view = __DIR__ . '/../views/user/home.php';
 if ($uri === '/arrays') $view = __DIR__ . '/../views/topics/arrays.php';
+if ($uri === '/functions') $view = __DIR__ . '/../views/topics/functions.php';
 if ($uri === '/users') $view = (new UserController())->index();
 if (!$view) $view = __DIR__ . '/../views/errors/404.php';

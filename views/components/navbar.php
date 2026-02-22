@@ -15,4 +15,5 @@ function active($uri, $path)
 	<a href="/" class="<?= $defaultClass . ' ' . active($uri, '/') ?>">Home</a>
 	<a href="/users" class="<?= $defaultClass . ' ' . active($uri, '/users') ?>">Users</a>
 	<a href="/arrays" class="<?= $defaultClass . ' ' . active($uri, '/arrays') ?>">Arrays</a>
+	<a href="/functions" class="<?= $defaultClass . ' ' . active($uri, '/functions') ?>">Functions</a>
 </nav>
