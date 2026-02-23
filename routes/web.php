@@ -3,11 +3,34 @@
 require __DIR__ . '/../controllers/UserController.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = rtrim($uri, '/') ?: '/';
+$method = $_SERVER['REQUEST_METHOD'];
 
-$view = null;
+$routes = [
 
-if ($uri === '/') $view = __DIR__ . '/../views/user/home.php';
-if ($uri === '/arrays') $view = __DIR__ . '/../views/topics/arrays.php';
-if ($uri === '/functions') $view = __DIR__ . '/../views/topics/functions.php';
-if ($uri === '/users') $view = (new UserController())->index();
-if (!$view) $view = __DIR__ . '/../views/errors/404.php';
+	"GET" => [
+		"/" => __DIR__ . '/../views/user/home.php',
+		"/arrays" => __DIR__ . '/../views/topics/arrays.php',
+		"/functions" => __DIR__ . '/../views/topics/functions.php',
+		"/users" => [UserController::class, "index"],
+		"/register" => __DIR__ . '/../views/user/register.php',
+	],
+
+	"POST" => [
+		"/register" => __DIR__ . '/../controllers/register.php'
+	]
+];
+
+$route = $routes[$method][$uri] ?? null;
+
+if (!$route) {
+	$content = __DIR__ . '/../views/errors/404.php';
+	return;
+}
+
+if (is_array($route)) {
+	[$class, $action] = $route;
+	$content = (new $class)->$action();
+} else {
+	$content = $route;
+}

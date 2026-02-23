@@ -15,7 +15,7 @@ require "../routes/web.php";
 
 <body>
 	<?php require "../views/components/navbar.php" ?>
-	<?php require $view; ?>
+	<?php require $content; ?>
 </body>
 
 </html>
