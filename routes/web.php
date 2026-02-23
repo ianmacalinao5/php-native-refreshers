@@ -30,7 +30,14 @@ if (!$route) {
 
 if (is_array($route)) {
 	[$class, $action] = $route;
-	$content = (new $class)->$action();
+	$result = (new $class)->$action();
 } else {
-	$content = $route;
+	$result = $route;
+}
+
+if (is_array($result)) {
+	extract($result["data"]);
+	$content = $result["view"];
+} else {
+	$content = $result;
 }

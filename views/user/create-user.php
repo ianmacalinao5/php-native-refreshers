@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,6 +52,12 @@
 
 		<button type="submit" class="px-5 py-2 border border-gray-400 rounded hover:bg-gray-200">Submit</button>
 	</form>
+
+	<h2 class="mt-5">Users List</h2>
+
+	<?php foreach ($users as $user): ?>
+		<p><?= $user["first_name"] ?></p>
+	<?php endforeach; ?>
 
 	<?php
 	unset($_SESSION["errors"]);
