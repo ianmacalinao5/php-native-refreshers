@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $_SESSION["errors"] = [];
 
@@ -14,21 +13,21 @@ $email     = trim($_POST["email"] ?? "");
 $_SESSION["old"] = $_POST;
 
 if ($firstName === "") {
-	$_SESSION["errors"]["firstName"] = "First name required.";
+	$_SESSION["errors"]["register"]["firstName"] = "First name required.";
 } elseif (preg_match('/\d/', $firstName)) {
-	$_SESSION["errors"]["firstName"] = "First name cannot contain numbers.";
+	$_SESSION["errors"]["register"]["firstName"] = "First name cannot contain numbers.";
 }
 
 if ($lastName === "") {
-	$_SESSION["errors"]["lastName"] = "Last name required.";
+	$_SESSION["errors"]["register"]["lastName"] = "Last name required.";
 } elseif (preg_match('/\d/', $lastName)) {
-	$_SESSION["errors"]["lastName"] = "Last name cannot contain numbers.";
+	$_SESSION["errors"]["register"]["lastName"] = "Last name cannot contain numbers.";
 }
 
 if ($email === "")
-	$_SESSION["errors"]["email"] = "Email required.";
+	$_SESSION["errors"]["register"]["email"] = "Email required.";
 elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))
-	$_SESSION["errors"]["email"] = "Invalid email format.";
+	$_SESSION["errors"]["register"]["email"] = "Invalid email format.";
 
 if (!empty($_SESSION["errors"])) {
 	header("Location: /users");
@@ -48,7 +47,7 @@ try {
 		":email"     => $email
 	]);
 
-	$_SESSION["success"] = "User registered successfully!";
+	$_SESSION["success"]["register"] = "User registered successfully!";
 	$_SESSION["old"] = [];
 	header("Location: /users");
 	exit;

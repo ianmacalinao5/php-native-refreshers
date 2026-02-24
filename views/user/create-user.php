@@ -1,7 +1,3 @@
-<?php
-session_start();
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +15,7 @@ session_start();
 
 			<?php if (!empty($_SESSION["success"])): ?>
 				<div class="text-green-500 bg-green-100 px-5 py-2 mt-5 w-fit rounded">
-					<?= htmlspecialchars($_SESSION["success"]) ?>
+					<?= htmlspecialchars($_SESSION["success"]["register"]) ?>
 				</div>
 			<?php endif; ?>
 
@@ -29,7 +25,7 @@ session_start();
 					<input type="text" name="firstName" id="firstName" placeholder="John" class="px-5 py-2 outline-none border border-gray-400 rounded w-fit"
 						value="<?= htmlspecialchars($_SESSION["old"]["firstName"] ?? "") ?>">
 					<span class="text-red-500 text-sm">
-						<?= htmlspecialchars($_SESSION["errors"]["firstName"] ?? "") ?>
+						<?= htmlspecialchars($_SESSION["errors"]["register"]["firstName"] ?? "") ?>
 					</span>
 				</div>
 
@@ -39,7 +35,7 @@ session_start();
 						value="<?= htmlspecialchars($_SESSION["old"]["lastName"] ?? "") ?>">
 
 					<span class="text-red-500 text-sm">
-						<?= htmlspecialchars($_SESSION["errors"]["lastName"] ?? "") ?>
+						<?= htmlspecialchars($_SESSION["errors"]["register"]["lastName"] ?? "") ?>
 					</span>
 				</div>
 
@@ -49,7 +45,7 @@ session_start();
 						value="<?= htmlspecialchars($_SESSION["old"]["email"] ?? "") ?>">
 
 					<span class="text-red-500 text-sm">
-						<?= htmlspecialchars($_SESSION["errors"]["email"] ?? "") ?>
+						<?= htmlspecialchars($_SESSION["errors"]["register"]["email"] ?? "") ?>
 					</span>
 				</div>
 
@@ -66,10 +62,10 @@ session_start();
 				<div class="flex gap-5 space-y-5">
 					<p><?= $user["first_name"] . " " . $user["last_name"] ?></p>
 					<div class="flex gap-2">
-						<form action="/edit-user" method="get">
-							<input type="hidden" name="userId" value="<?php echo htmlspecialchars($user["id"]); ?>">
+						<a href="/edit-user?userId=<?= urlencode($user['id']) ?>">
 							<button class="bg-sky-500 text-white px-3 py-1 rounded hover:bg-sky-700">Edit</button>
-						</form>
+						</a>
+
 						<form action="/delete-user" method="post">
 							<input type="hidden" name="userId" value="<?php echo htmlspecialchars($user["id"]); ?>">
 							<button type="submit" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>

@@ -14,11 +14,13 @@ $routes = [
 		"/functions" => __DIR__ . '/../views/topics/functions.php',
 		"/users" => [UserController::class, "index"],
 		"/register" => __DIR__ . '/../views/user/register.php',
+		"/edit-user" => __DIR__ . '/../views/user/edit-user.php',
 	],
 
 	"POST" => [
 		"/register" => __DIR__ . '/../controllers/register.php',
-		"/delete-user" => __DIR__ . '/../controllers/delete-user.php'
+		"/delete-user" => __DIR__ . '/../controllers/delete-user.php',
+		"/update-user" => __DIR__ . '/../controllers/update-user.php',
 	]
 ];
 
