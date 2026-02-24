@@ -17,7 +17,8 @@ $routes = [
 	],
 
 	"POST" => [
-		"/register" => __DIR__ . '/../controllers/register.php'
+		"/register" => __DIR__ . '/../controllers/register.php',
+		"/delete-user" => __DIR__ . '/../controllers/delete-user.php'
 	]
 ];
 
